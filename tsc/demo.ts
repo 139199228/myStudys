@@ -26,89 +26,119 @@
 //     color: "red"
 // }
 // document.body.innerHTML = area(Shape);
-//class 
+//class
+// interface Shape {
+//     name: string,
+//     sex?: boolean
+// }
+// class Parent {
+//     constructor(shape: Shape, age: number = 12, ...res) {
+//         let { name, sex } = shape;
+//         this.setHtml(res)
+//     }
+//     private setHtml(res) {
+//         const tent = document.getElementById("content");
+//         const list = res.map(item => `<div class="lis">${item}</div>`);
+//         let lis = '';
+//         for (let i of list) {
+//             lis += i;
+//         }
+//         tent.innerHTML = lis;
+//         // addEvent("#content")("click", ".lis", function (el) {
+//         //     console.log(el.target.innerHTML)
+//         // })
+//         addEvent(".lis")("click", function () {
+//             console.log("3")
+//         })
+//     }
+//     setClick() {
 
-interface Shape {
-    name: string,
-    sex?: boolean
+//     }
+// }
+// const shape = {
+//     name: "张三",
+//     sex: true
+// }
+// const age = 11
+// new Parent(shape, age, 1, 2, 3, 4, 5)
+// function addEvent(ele: string, ) {
+//     let obj;
+//     console.log(ele.charAt(0))
+//     if (ele.charAt(0) === "#") {
+//         let str = ele.substr(1);
+//         obj = document.getElementById(str);
+//         console.log("2")
+//     } else {
+//         obj = document.querySelectorAll(ele);
+//     }
+//     if (window.addEventListener) {
+//         return function (type: string, ...rest) {
+//             console.log(rest)
+//             if (typeof rest[0] === 'string') {
+//                 if (typeof rest[rest.length] === "boolean") {
+//                     if (obj.length > 1) {
+//                         for (let item of obj) {
+
+//                             item.addEventListener(type, rest[0], rest[1], rest[rest.length]);
+//                         }
+//                     } else {
+//                         obj.addEventListener(type, rest[0], rest[1], rest[rest.length]);
+
+//                     }
+//                 } else {
+
+//                     obj.addEventListener(type, rest[0], rest[1], false);
+
+//                 }
+//             } else {
+//                 if (obj.length > 1) {
+//                     for (let item of obj) {
+//                         item.addEventListener(type, rest[0], rest[rest.length]);
+
+//                     }
+//                 } else {
+//                     obj.addEventListener(type, rest[0], rest[rest.length]);
+//                 }
+//             }
+
+//         }
+//     } else {
+
+//     }
+// }
+
+interface Parent {
+    readonly id: number;
+    name: string;
+    age?: string;
+    [a: string]: any;
+    (name: string, age: number): string | number
 }
-class Parent {
-    constructor(shape: Shape, age: number = 12, ...res) {
-        let { name, sex } = shape;
-        this.setHtml(res)
-    }
-    private setHtml(res) {
-        const tent = document.getElementById("content");
-        const list = res.map(item => `<div class="lis">${item}</div>`);
-        let lis = '';
-        for (let i of list) {
-            lis += i;
-        }
-        tent.innerHTML = lis;
-        // addEvent("#content")("click", ".lis", function (el) {
-        //     console.log(el.target.innerHTML)
-        // })
-        addEvent(".lis")("click", function () {
-            console.log("3")
-        })
-    }
-    setClick() {
-
-    }
+let obj = {
+    id: 1,
+    name: 'tom',
+    age: 22,
+    arr: ["中航三", "jsoi"],
+    fn: (name: string) => (age: number): string | number => `我的名字是${name}，今年${age}`
 }
-const shape = {
-    name: "张三",
-    sex: true
-}
-const age = 11
-new Parent(shape, age, 1, 2, 3, 4, 5)
-function addEvent(ele: string, ) {
-    let obj;
-    console.log(ele.charAt(0))
-    if (ele.charAt(0) === "#") {
-        let str = ele.substr(1);
-        obj = document.getElementById(str);
-        console.log("2")
-    } else {
-        obj = document.querySelectorAll(ele);
-    }
-    if (window.addEventListener) {
-        return function (type: string, ...rest) {
-            console.log(rest)
-            if (typeof rest[0] === 'string') {
-                if (typeof rest[rest.length] === "boolean") {
-                    if (obj.length > 1) {
-                        for (let item of obj) {
 
-                            item.addEventListener(type, rest[0], rest[1], rest[rest.length]);
-                        }
-                    } else {
-                        obj.addEventListener(type, rest[0], rest[1], rest[rest.length]);
 
-                    }
-                } else {
+console.log(obj.fn(obj.name)(obj.age));
 
-                    obj.addEventListener(type, rest[0], rest[1], false);
 
-                }
-            } else {
-                if (obj.length > 1) {
-                    for (let item of obj) {
-                        item.addEventListener(type, rest[0], rest[rest.length]);
 
-                    }
-                } else {
-                    obj.addEventListener(type, rest[0], rest[rest.length]);
-                }
-            }
 
-        }
-    } else {
-
-    }
-}
-function func() {
-    if (rest.length > 3) {
-
-    }
-}
+// let tom: Parent = {
+//     name: "tom",
+//     age: "12",
+//     qitaName: 'moty'
+// }
+// console.log(tom)
+// let tom: Parent = {
+//     id: 1,
+//     name: "tom",
+//     age: "12",
+//     qitaName: 'moty'
+// }
+// console.log(tom.id)
+// console.log(tom)
