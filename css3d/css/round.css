@@ -1,0 +1,11 @@
+.box1{
+	width: 400px;
+	height:200px;
+	background: green;
+	border-radius: 20px;
+	outline: 10px solid red;
+	box-shadow: 0 0 0 8px red;
+}
+body{
+	padding: 200px;
+}

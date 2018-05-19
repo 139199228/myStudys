@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<style>
+		:root {
+			  --heading-color: #ff0000;
+		}
+		.box{
+			width:200px;
+			height: 100px;
+			background: var(heading-color);
+		}
+	</style>
+
+</head>
+<body>
+	<div class="box"></div>
+	<ul>
+		<li class="li">1</li>
+		<li class="li">2</li>
+		<li class="li">3</li>
+		<li class="li">4</li>
+		<li class="li">5</li>
+	</ul>
+	<script>	
+		// var lis = document.querySelectorAll('.li')
+		// for(let i=0;i<lis.length;i++){
+		// 	lis[i].onclick=()=>console.log(i);
+		// }
+		//闭包
+		// for(var i=0;i<lis.length;i++){
+		// 	( j =>{
+		// 		lis[j].onclick=()=>console.log(j);
+		// 	})(i)
+		// }
+		//let const 暂时性死去  只要let 绑定到这个块级作用域里 在let 之前的重复声明的变量就会报错
+		// var str='123'
+		// if(true){
+		// 	str="345"
+
+		// 	let str;
+
+		// 	console.log(str)
+		// }
+	</script>
+</body>
+</html>
