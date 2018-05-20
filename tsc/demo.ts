@@ -107,23 +107,23 @@
 //     }
 // }
 
-interface Parent {
-    readonly id: number;
-    name: string;
-    age?: string;
-    [a: string]: any;
-    (name: string, age: number): string | number
-}
-let obj = {
-    id: 1,
-    name: 'tom',
-    age: 22,
-    arr: ["中航三", "jsoi"],
-    fn: (name: string) => (age: number): string | number => `我的名字是${name}，今年${age}`
-}
+// interface Parent {
+//     readonly id: number;
+//     name: string;
+//     age?: string;
+//     [a: string]: any;
+//     (name: string, age: number): string | number
+// }
+// let obj = {
+//     id: 1,
+//     name: 'tom',
+//     age: 22,
+//     arr: ["中航三", "jsoi"],
+//     fn: (name: string) => (age: number): string | number => `我的名字是${name}，今年${age}`
+// }
 
 
-console.log(obj.fn(obj.name)(obj.age));
+// console.log(obj.fn(obj.name)(obj.age));
 
 
 
@@ -142,3 +142,47 @@ console.log(obj.fn(obj.name)(obj.age));
 // }
 // console.log(tom.id)
 // console.log(tom)
+
+
+
+// 存取器
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     get name() {
+//         return 'Jack';
+//     }
+//     set name(value) {
+//         console.log('setter: ' + value);
+//     }
+// }
+
+// let a = new Animal('Kitty'); // setter: Kitty
+// a.name = 'Tom'; // setter: Tom
+// console.log(a.name); // Jack
+
+
+//静态方法
+// class Animal {
+//     static isAnimal(a) {
+//         return a instanceof Animal
+//     }
+// }
+// let a = 'jack'
+// Animal.isAnimal(a);
+
+//抽象类
+abstract class Animal {
+    public abstract sayHi();
+}
+class Cat extends Animal {
+
+    sayHi() {
+        console.log(name)
+    }
+}
+let c = new Cat()
+console.log(c.sayHi())
+console.log(name)
+console.log(c)
