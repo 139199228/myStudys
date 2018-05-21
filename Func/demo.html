@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">btn</div>
+    <script>
+        //纯函数
+        // let arr = [1, 2, 3, 4, 5]
+        // let res = arr.slice(0, 3)
+        // console.log(arr)
+        // console.log(res.slice(0, 3))
+        //函数式编程
+        // function changes(age) {
+        //     return age > 18
+        // }
+        // var checkage = min => (age => age > min);
+
+        // function chenge(min) {
+        //     return function (age) {
+        //         return age > min
+        //     }
+        // }
+        // console.log(checkage(3)(4))
+
+        // let checkage = min => (age => age > min);
+        // console.log(checkage(20)(21))
+        // console.log(changes(23))
+
+
+        //纯函数让变量更灵活
+        let res = (f, g) => (x => f(g(x)));
+        var s = res((g) => {
+            box.innerHTML = g
+            return true
+        }, (x) => {
+
+            let span = x.map(item => `<span>${item}</span>`);
+            return span.join("")
+        })([1, 2, 3, 4])
+        if (s) {
+            var spans = document.querySelectorAll("span");
+            console.log(spans)
+        }
+        // let res = function (f, g) {
+        //     return function (x) {
+        //         return f(g(x))
+        //     }
+        // }
+        // console.log(res(function (x) {
+        //     console.log(x)
+        //     return "f" + x
+        // }, function (x) {
+        //     console.log(x)
+        //     return "g" + x
+        // })(3))
+    </script>
+</body>
+
+</html>
