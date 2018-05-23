@@ -104,20 +104,61 @@
         // }
         // console.log(add(5))
         //容器、函子
-        function Co(val) {
-            this._val = val
-        }
+        // function Co(val) {
+        //     this._val = val;
+        // }
         //函数式编程一般约定，函子有一个of方法
-        Co.of = function (x) {
-            return new Co(x);
-        }
+        // Co.of = function (x) {
+        //     return new Co(x);
+        // }
         //一般约定，函子的标志就是容器具有map方法。该方法将容器里的每一个值，映射到另一个容器里
-        Co.prototype.map = function (f) {
-            return Co.of(f(this._val))
-        }
-        var s = Co.of(4).map(x => x + x).map(x => "结果是" + x)
-        console.log(s._val)
+        // Co.prototype.map = function (f) {
+        //     return Co.of(f(this._val))
+        // }
+        // var s = Co.of(4).map(x => x + x).map(x => "结果是" + x)
+        // console.log(s._val)
 
+
+
+        //maybe函子   容器内部的值可能是一个空值(null),而外部函数未必有处理空值的机制，如果传入空值，很可能就会出错
+        //如：var s = Co.of(null).map(s => s.toUppercase())
+        //解决
+
+        // class Maybe {
+        //     constructor(val) {
+        //         this.val = val
+        //     }
+        //     map(s) {
+        //         return this.isNothing() ? Maybe.of(null) : Maybe.of(s(this.val))
+        //     }
+        //     isNothing() {
+        //         return (this.val == null)
+        //     }
+        // }
+        // Maybe.of = function (f) {
+        //     return new Maybe(f)
+        // }
+        // var q = Maybe.of([1, 2, 3, 4, 5]).map(x => {
+        //     return x.map(x => `<span>${x}</span>`)
+        // }).map(x => x.join(""))
+        // console.log(q)
+        //Either
+        class Either {
+            constructor(left, right) {
+                this.left = left;
+                this.right = right;
+            }
+            map(f) {
+                return this.right ?
+                    Either.of(this.left, f(this.right)) :
+                    Either.of(f(this.left), this.right);
+            }
+        }
+        Either.of = function (left, right) {
+            return new Either(left, right);
+        }
+        var s = Either.of(5).map(s => s + 1);
+        console.log(s)
         //
     </script>
 </body>
