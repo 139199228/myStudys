@@ -10,6 +10,7 @@
 
 <body>
     <div id="box">btn</div>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.10/lodash.core.js"></script>
     <script>
         //纯函数
         // let arr = [1, 2, 3, 4, 5]
@@ -143,22 +144,24 @@
         // }).map(x => x.join(""))
         // console.log(q)
         //Either
-        class Either {
-            constructor(left, right) {
-                this.left = left;
-                this.right = right;
-            }
-            map(f) {
-                return this.right ?
-                    Either.of(this.left, f(this.right)) :
-                    Either.of(f(this.left), this.right);
-            }
-        }
-        Either.of = function (left, right) {
-            return new Either(left, right);
-        }
-        var s = Either.of(5).map(s => s + 1);
-        console.log(s)
+        // class Either {
+        //     constructor(left, right) {
+        //         this.left = left;
+        //         this.right = right;
+        //     }
+        //     map(f) {
+        //         return this.right ?
+        //             Either.of(this.left, f(this.right)) :
+        //             Either.of(f(this.left), this.right);
+        //     }
+        // }
+        // Either.of = function (left, right) {
+        //     return new Either(left, right);
+        // }
+        // var s = Either.of(5).map(s => s + 1);
+        // console.log(s)
+        import _ from "lodash"
+        console.log(_)
         //
     </script>
 </body>
