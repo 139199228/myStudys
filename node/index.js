@@ -46,7 +46,6 @@ const app = http.createServer((request, response) => {
 
             response.write('出错了')
             console.log("aa" + error)
-
             response.end()
         }
 

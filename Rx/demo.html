@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :root {
+            --myColor: #fff;
+        }
+
+        body {
+            background: var(--myColor)
+        }
+    </style>
+</head>
+
+<body>
+    <button>222</button>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.0.0/dist/global/Rx.js"></script>
+    <script>
+        //原生节流
+        // let count = 0
+        // const time = 1000
+        // let lastTime = Date.now() - time;
+        // var button = document.querySelector('button');
+        // button.onclick = function (event) {
+        //     console.log(Date.now())
+        //     if ((Date.now() - lastTime) >= time) {
+        //         count += event.clientX
+        //         console.log(`++count:${count}`)
+        //         lastTime = Date.now();
+        //     }
+        // }
+
+        //Rx节流
+        // var count = 0;
+        // var button = document.querySelector('button');
+        // Rx.Observable.fromEvent(button, "click")
+        //     .throttleTime(1000)
+        //     .map(e => e.clientX)
+        //     .scan((count, clientX) => count + clientX, 0)
+        //     .subscribe(count => console.log(`++count:${count}`))
+
+        //Observable可观察对象
+        // let Observere = Rx.Observable.create(observable => {
+        //     observable.next(1)
+        //     observable.next(2)
+        //     observable.next(3)
+        //     observable.next(4)
+        //     setTimeout(() => {
+        //         observable.next(5)
+        //         observable.complete()
+        //     }, 2000)
+        // })
+        // console.log("加载中")
+        // Observere.subscribe({
+        //     next: x => console.log(x),
+        //     error: err => console.error(err),
+        //     complete: () => console.log("最后完成")
+        // })
+
+        // console.log("加载中")
+
+        //Observable作为函数的泛值
+        //原生
+        // function foo() {
+        //     console.log("hello")
+        //     return 4
+        // }
+        // const x = foo.call()
+        // console.log(x)
+        // const y = foo.call()
+        // console.log(y)
+        //Rx
+        var observ = Rx.Observable.create((observer) => {
+            console.log("hell")
+            observer.next(4)
+        })
+        observ.subscribe((x) => {
+            console.log(x)
+        })
+        observ.subscribe((y) => {
+            console.log(y)
+        })
+        //
+    </script>
+</body>
+
+</html>

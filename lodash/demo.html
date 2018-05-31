@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.10/lodash.core.js"></script>
+
+    <script>
+        var users = [{
+                'user': 'barney',
+                'age': 36
+            },
+            {
+                'user': 'fred',
+                'age': 40
+            },
+            {
+                'user': 'pebbles',
+                'age': 1
+            }
+        ];
+        let s = _.chain(users).sortBy("age").map(o => o.user + "is" + o.age).head()
+
+        console.log(s);
+
+
+        var arr = [6, 1, 2, 3, 4, 5]
+        console.log(_.sortBy(arr))
+        //
+    </script>
+</body>
+
+</html>
