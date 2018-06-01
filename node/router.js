@@ -54,6 +54,7 @@ class Login {
 
             fs.writeFile(path, data, (err, data) => {
                 if (err) return reject(err)
+
                 resolve(data)
             })
         })

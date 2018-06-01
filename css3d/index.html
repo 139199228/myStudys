@@ -10,15 +10,76 @@
 			margin: 0;
 			padding: 0;
 		}
+
+		.new-skin-list {
+			height: 414px;
+			position: relative;
+			margin: 40px 0 0
+		}
+
+		.new-skin-list li {
+			width: 282px;
+			height: 414px;
+			position: absolute;
+			top: 0;
+			transition: all 1s ease-in-out
+		}
+
+		.new-skin-list li>div {
+			pointer-events: none
+		}
+
+		.new-skin-list .pos1 {
+			left: 180px;
+			transform: scale(.9)
+		}
+
+		.new-skin-list .pos2 {
+			left: 460px;
+			z-index: 2
+		}
+
+		.new-skin-list .pos3 {
+			left: 740px;
+			transform: scale(.9)
+		}
+
+		.new-skin-list .new-skin-1 {
+			position: absolute;
+			top: -32px;
+			left: -26px
+		}
+
+		.new-skin-list .new-skin-2 {
+			position: absolute;
+			top: -34px;
+			left: -22px
+		}
+
+		.new-skin-list .new-skin-3 {
+			position: absolute;
+			top: -58px;
+			left: -2px
+		}
 	</style>
 </head>
 
 <body>
-	<!-- <div class="box">
-		<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1229782961,178388760&fm=200&gp=0.jpg" alt=""> 
-	</div>-->
-	<div class="box1">3242</div>
-	<script src="./index.js"></script>
+	<ul class="new-skin-list">
+		<li class="pos3" style="">
+			<div class="new-skin-2"></div>
+		</li>
+		<li class="pos1" style="">
+			<div class="new-skin-1"></div>
+		</li>
+		<li class="pos2" style="">
+			<div class="new-skin-3"></div>
+		</li>
+	</ul>
+	<!-- <div class="box1">3242</div> -->
+	<!-- <script src="./index.js"></script> -->
+	<script>
+	</script>
 </body>
 
 </html>
